@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Global Styles */
+body {
+  @apply text-white;
+  background-color: #0a0a0a; /* Dark grey background color */
+  
+  background-size: 150px auto; /* Adjust the size as needed */
+  background-position: 50px center; /* Move the logo 50px down from the top */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  @apply bg-gray-800 bg-opacity-70 text-white;
+}
+
+footer {
+  @apply bg-gray-800 bg-opacity-70 text-white;
+}
+
+/* Tooltip Styling */
+.draggable-image {
+  @apply relative inline-block;
+}
+
+.tooltip {
+  @apply invisible bg-black text-white text-center rounded py-1 px-2;
+  position: absolute;
+  z-index: 10;
+  bottom: 125%; /* Position above the image */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  width: max-content; /* Adjusts width automatically */
+  max-width: 120px; /* Limit maximum width */
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* Arrow points downwards */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.draggable-image:hover .tooltip {
+  @apply visible opacity-100;
+}
+
+/* Custom Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:vertical {
+  background: url('path/to/up-arrow.png') no-repeat center, url('path/to/down-arrow.png') no-repeat center;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:horizontal {
+  background: url('path/to/left-arrow.png') no-repeat center, url('path/to/right-arrow.png') no-repeat center;
+}
+
